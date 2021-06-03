@@ -10,8 +10,10 @@ namespace ExtensionPractice2
             demo.PrintToConsole();
 
             SimpleLogger loggers = new SimpleLogger();
-            loggers.LogError("This is an error !");
+            loggers.LogError("This is an Error !");
             loggers.log("Test Error","Errorss");
+
+            loggers.Logwarning("This is a Warning !");
         }
     }
 
@@ -22,6 +24,14 @@ namespace ExtensionPractice2
             var defaultColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
             logger.log(message,"Error");
+            Console.ForegroundColor = defaultColor;
+        }
+
+        public static void Logwarning(this SimpleLogger logger, string message)
+        {
+            var defaultColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            logger.log(message, "Warning");
             Console.ForegroundColor = defaultColor;
         }
     }
